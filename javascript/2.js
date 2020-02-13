@@ -1,21 +1,21 @@
 let arr=[[1,2,3],[4,5,6],[7,8,9]]
 let leftDiagonal=0;let rightDiagonal=0;let border=0;
-let n=3;
-let tmp=n;
-arr.forEach((ele1,ind1)=>{
-    ele1.forEach((ele2,ind2)=>{
-        if(ind1===ind2){
-            leftDiagonal+=ele2
+let n=0;
+for(let i=0;i<3;i++){
+    for(let j=0;j<3;j++){
+        if(i===j){
+            leftDiagonal+=arr[i][j];
         }
-        if(ind2===tmp-1){
-            rightDiagonal+=ele2;
-            tmp--;
+        if(j===(arr.length-1)-n){
+            rightDiagonal+=arr[i][j];
+            n++;
         }
-        if(ind1===0|| ind1===n-1){
-            border+=ind2;
+        if(i===0 || i===arr.length-1){
+            border+=arr[i][j];
         }
-
-    })
-})
-console.log(leftDiagonal);
-console.log(rightDiagonal);
+        if(j==0 || j===arr.length-1){
+            border+=arr[i][j];
+        }
+    }
+}
+console.log(leftDiagonal,rightDiagonal,border);
